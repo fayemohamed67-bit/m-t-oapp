@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:flutter_map/flutter_map.dart';
+import 'package:latlong2/latlong.dart';
 
 import '../data/models/city_weather.dart';
 import '../widgets/weather_icon.dart';
@@ -74,18 +75,38 @@ class DetailScreen extends StatelessWidget {
           Expanded(
             child: ClipRRect(
               borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
-              child: GoogleMap(
-                initialCameraPosition: CameraPosition(target: position, zoom: 10),
-                markers: {
-                  Marker(
-                    markerId: MarkerId(weather.cityName),
-                    position: position,
-                    infoWindow: InfoWindow(
-                      title: weather.cityName,
-                      snippet: weather.descriptionCapitalized,
-                    ),
+              child: FlutterMap(
+                options: MapOptions(
+                  initialCenter: position,
+                  initialZoom: 10,
+                ),
+                children: [
+                  TileLayer(
+                    urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                    userAgentPackageName: 'com.example.meteo_app',
                   ),
-                },
+                  MarkerLayer(
+                    markers: [
+                      Marker(
+                        point: position,
+                        width: 44,
+                        height: 44,
+                        child: Icon(
+                          Icons.location_on_rounded,
+                          size: 44,
+                          color: theme.colorScheme.error,
+                        ),
+                      ),
+                    ],
+                  ),
+                  RichAttributionWidget(
+                    attributions: [
+                      TextSourceAttribution(
+                        '© OpenStreetMap contributors',
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
           ),

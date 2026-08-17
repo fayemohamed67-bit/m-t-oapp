@@ -25,11 +25,6 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <!-- Clé Google Maps SDK : remplace TA_CLE_GOOGLE_MAPS par ta vraie clé
-             (voir section "Configurer la clé Google Maps" du README). -->
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="TA_CLE_GOOGLE_MAPS" />
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
         <meta-data

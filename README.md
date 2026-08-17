@@ -4,7 +4,7 @@ Application développée dans le cadre de l'examen de **Développement Mobile �
 
 L'application récupère la météo en temps réel de 5 villes, affiche une jauge de
 progression animée pendant le chargement, puis permet de consulter le détail
-de chaque ville sur une carte interactive (Google Maps).
+de chaque ville sur une carte interactive (OpenStreetMap).
 
 ## 👥 Membres du groupe
 
@@ -18,7 +18,7 @@ de chaque ville sur une carte interactive (Google Maps).
 - Récupération séquentielle de la météo de 5 villes via l'API OpenWeather (Retrofit + Dio).
 - Messages d'attente dynamiques qui défilent pendant le chargement.
 - Tableau interactif des 5 villes une fois le chargement terminé.
-- Page de détail par ville : infos météo complètes + localisation exacte sur Google Maps.
+- Page de détail par ville : infos météo complètes + localisation exacte sur une carte OpenStreetMap.
 - Gestion des erreurs réseau avec message clair et bouton "Réessayer".
 - Mode clair et mode sombre (Material 3).
 - La jauge se transforme en bouton "Recommencer" une fois remplie ; le bouton
@@ -56,7 +56,9 @@ lib/
 
 - Flutter SDK installé (`flutter doctor` sans erreur bloquante).
 - Un compte [OpenWeather](https://openweathermap.org/api) (clé gratuite).
-- Une clé [Google Maps SDK](https://console.cloud.google.com/) (Android / iOS).
+- Aucune clé n'est nécessaire pour la carte : elle utilise les tuiles
+  [OpenStreetMap](https://www.openstreetmap.org/) via `flutter_map`, sans
+  compte ni facturation à configurer.
 
 ### 2. Récupérer les dépendances
 
@@ -80,21 +82,7 @@ OPENWEATHER_API_KEY=ta_cle_ici
 
 ⚠️ Le fichier `.env` ne doit **jamais** être commité (il est dans `.gitignore`).
 
-### 5. Configurer la clé Google Maps
-
-- **Android** : dans `android/app/src/main/AndroidManifest.xml`, à l'intérieur
-  de la balise `<application>`, ajouter :
-  ```xml
-  <meta-data
-      android:name="com.google.android.geo.API_KEY"
-      android:value="TA_CLE_GOOGLE_MAPS" />
-  ```
-- **iOS** : dans `ios/Runner/AppDelegate.swift`, ajouter avant `GeneratedPluginRegistrant.register` :
-  ```swift
-  GMSServices.provideAPIKey("TA_CLE_GOOGLE_MAPS")
-  ```
-
-### 6. Lancer l'application
+### 5. Lancer l'application
 
 ```bash
 flutter run
@@ -106,5 +94,5 @@ flutter run
 - **Provider** — gestion d'état
 - **Dio + Retrofit** — appels API météo
 - **json_serializable** — sérialisation des modèles
-- **google_maps_flutter** — carte interactive
+- **flutter_map + OpenStreetMap** — carte interactive (sans clé API)
 - **flutter_dotenv** — gestion sécurisée de la clé API
