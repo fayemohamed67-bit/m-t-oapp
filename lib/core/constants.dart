@@ -31,5 +31,6 @@ class AppConstants {
   static const int secondsBetweenCalls = 2;
 
   /// Clé API OpenWeather, lue depuis le fichier .env (voir .env.example).
-  static String get openWeatherApiKey => dotenv.env['OPENWEATHER_API_KEY'] ?? '';
+  static String get openWeatherApiKey =>
+      dotenv.env['OPENWEATHER_API_KEY'] ?? '';
 }
