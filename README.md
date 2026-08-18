@@ -2,14 +2,15 @@
 
 Application développée dans le cadre de l'examen de **Développement Mobile — L3 IAGE ISI 2026**.
 
-L'application récupère la météo en temps réel de 5 villes, affiche une jauge de
-progression animée pendant le chargement, puis permet de consulter le détail
-de chaque ville sur une carte interactive (OpenStreetMap).
+L'application récupère la météo en temps réel de 5 villes (Dakar, Thiès,
+Kaolack, Paris, Londres), affiche une jauge de progression animée pendant le
+chargement, puis permet de consulter le détail de chaque ville sur une carte
+interactive (OpenStreetMap).
 
 ## 👥 Membres du groupe
 
-- Nom Prénom 1 — à compléter
-- Nom Prénom 2 — à compléter
+- Mohamed El Bachir Faye
+- Younnoussa Bangoura
 
 ## ✨ Fonctionnalités
 
