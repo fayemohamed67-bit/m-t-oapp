@@ -1,5 +1,7 @@
 
 
+
+
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 /// Constantes globales de l'application.
@@ -10,10 +12,10 @@ class AppConstants {
   /// Tu peux librement changer cette liste.
   static const List<String> cities = [
     'Dakar',
+    'Thies',
+    'Kaolack',
     'Paris',
-    'New York',
-    'Tokyo',
-    'Dubai',
+    'London',
   ];
 
   /// Messages d'attente affichés en boucle pendant le chargement.
